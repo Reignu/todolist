@@ -10,7 +10,7 @@ function Form({ input, setInput }) {
                 type='text' 
                 role='input'
             />
-            <Button type='submit' onclick='#'>Add</Button>
+            <Button type='submit'>Add</Button>
         </FormContainer>
     );
 }
