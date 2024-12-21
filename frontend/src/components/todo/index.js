@@ -21,17 +21,26 @@ function Todo() {
         fetchData();
     }, []);
 
-    const addTodo = async () => {
-        console.log("added Todo");
-    }
-
-    console.log(todos, "todos");
+    const addTodo = async (e) => {
+        e.preventDefault(); // Prevent screen refreshing
+        if (input.length === 0) return null;
+        await axios.post("/todos", [{
+            ...todos,
+            text: input,
+            completed: false
+        }]);
+        fetchData();
+        setInput("");
+        console.log("addedTodo");
+    };
+    
+    console.log("todos", todos);
 
     return (
         <Container>
             <h2>List of Todos</h2>
             {/* Form Component */}
-            <Form input = {input} setInput = {setInput}/>
+            <Form input = {input} setInput = {setInput} addTodo = {addTodo}/>
             {/* Task */}
             {/* Key */}
             {/* Author */}
