@@ -6,13 +6,16 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const {
-  getTodos, createTodo, updateTodo, deleteTodo
+  getTodos, 
+  createTodo, 
+  updateTodo, 
+  deleteTodo
 } = require('./controllers/todoController')
 
 // App config
 const app = express();
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT;
 
 const connectionURL = process.env.MONGO_URI
 
@@ -34,7 +37,7 @@ mongoose.connect(connectionURL)
 // API endpoints
 
 // Get todos list
-app.get('/todos', getTodos);
+app.get("/todos", getTodos);
 
 // Create a new Todo
 app.post('/todos', createTodo);

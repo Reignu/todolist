@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const todoSchema = mongoose.Schema(
+const todoSchema = new mongoose.Schema(
   {
     text: {
       type: String,
@@ -9,9 +9,9 @@ const todoSchema = mongoose.Schema(
     completed: {
       type: Boolean,
       required: true
-    }
+    },
   },
   {timestamps: true}
-)
+);
 
-module.export = mongoose.model("todos", todoSchema);
+module.exports = mongoose.model("Todos", todoSchema);
