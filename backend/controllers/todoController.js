@@ -11,6 +11,17 @@ const getTodos = async (req, res) => {
   }
 }
 
+// Create a new Todo
+const createTodo = async (req, res) => {
+  const dbTodo = req.body;
+  try {
+    const newTodo = await Todos.create(dbTodo);
+    res.status(201).send(newTodo);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+}
+
 // Update Todo
 const updateTodo = async (req, res) => {
   const {id} = req.params;
