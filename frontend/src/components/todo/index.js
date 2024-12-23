@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Container } from './styles';
 import Form from '../form';
 import TodoList from '../todolist';
+import Key from '../key';
+import Author from '../author';
 import axios from "../../axios";
+import { KeyContainer } from '../key/styles';
 
 function Todo() {
     const [input, setInput] = useState("");
@@ -38,12 +41,10 @@ function Todo() {
     return (
         <Container>
             <h2>List of Todos</h2>
-            {/* Form Component */}
             <Form input = {input} setInput = {setInput} addTodo = {addTodo}/>
-            {/* TodoList */}
             <TodoList todos={todos} fetchData={fetchData} />
-            {/* Key */}
-            {/* Author */}
+            <Key />
+            <Author />
         </Container>
     );
 }

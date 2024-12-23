@@ -38,7 +38,7 @@ function TodoList({ todos, fetchData }) {
             onClick={() => updateTodo(todo._id)}
             isCompleted={todo.completed === true}
             >
-              {todo.text}
+              {todo.text.trim()}
 
             </Text>
             <DeleteIcon onClick={() => deleteTodo(todo._id)}>X</DeleteIcon>
