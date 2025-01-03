@@ -27,14 +27,16 @@ function Todo() {
     const addTodo = async (e) => {
         e.preventDefault(); // Prevent screen refreshing
         if (input.length === 0) return null;
-        await axios.post("/todos", [{
-            ...todos,
-            text: input,
-            completed: false
-        }]);
-        fetchData();
-        setInput("");
-        console.log("addedTodo");
+        try {
+            await axios.post("/todos", {
+                text: input,
+                completed: false
+            });
+            fetchData();
+            setInput("");
+        } catch (err) {
+            console.error(err.message);
+        }
     };
 
     return (
