@@ -5,15 +5,25 @@ A simple and intuitive Todo List application built with React.
 ## Features
 
 - Add new tasks
-- Mark tasks as complete
+- Mark tasks as complete/incomplete
 - Delete tasks
 - Responsive design
+- Real-time updates
+- Persistent storage with MongoDB
 
 ## Technologies Used
 
+### Frontend
 - React.js
-- CSS
-- JavaScript
+- Axios
+- Styled Components
+- Netlify (Hosting)
+
+### Backend
+- Node.js
+- Express
+- MongoDB
+- Render (Hosting)
 
 ## Installation
 
