@@ -24,7 +24,7 @@ const connectionURL = process.env.MONGO_URI
 app.use(express.json());
 
 app.use(Cors({
-  origin: ['http://localhost:3000', 'reignutodolist.netlify.app'],
+  origin: ['http://localhost:3000', 'https://reignutodolist.netlify.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
