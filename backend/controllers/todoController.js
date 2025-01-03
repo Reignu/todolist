@@ -25,18 +25,22 @@ const createTodo = async (req, res) => {
 // Update Todo
 const updateTodo = async (req, res) => {
   const { id } = req.params;
+  const { completed } = req.body;
 
   try {
     // Check the id is valid
     if (!mongoose.Types.ObjectId.isValid(id)) {
       return res.status(404).send(`There is no todo with id: ${id}`);
     }
-    const todoID = {_id: id};
-    const update = { completed: true };
-    const updatedTodo = await Todos.findOneAndUpdate(todoID, update);
+    
+    const todoID = { _id: id };
+    const update = { completed: completed };
+    const updatedTodo = await Todos.findOneAndUpdate(todoID, update, { new: true });
+    
     if (!updatedTodo) {
       return res.status(404).send(`There is no todo with id: ${id}`);
     }
+    
     res.status(200).send(updatedTodo);
   } catch (error) {
     res.status(500).send(error.message);
