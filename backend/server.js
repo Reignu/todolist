@@ -23,7 +23,11 @@ const connectionURL = process.env.MONGO_URI
 // convert to json
 app.use(express.json());
 
-app.use(Cors());
+app.use(Cors({
+  origin: ['http://localhost:3000', 'reignutodolist.netlify.app'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 // DB config
 mongoose.connect(connectionURL)
